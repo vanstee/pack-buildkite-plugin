@@ -9,9 +9,8 @@ Example
 
 ```
 steps:
-  - command: test.sh
-    plugins:
-      - vanstee/pack:
-          build:
-            image: "example:${BUILDKITE_COMMIT}"
+  - plugins:
+      vanstee/pack:
+        build:
+          image: "example:${BUILDKITE_COMMIT}"
 ```

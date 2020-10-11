@@ -1,0 +1,6 @@
+#!/bin/bash
+set -ueo pipefail
+
+DIR="$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)"
+
+docker run -it --rm -v "${DIR}/..:/plugin:ro" buildkite/plugin-linter --name vanstee/pack

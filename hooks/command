@@ -1,0 +1,7 @@
+#!/bin/bash
+set -ueo pipefail
+
+DIR="$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)"
+
+echo "--- Building an image with pack"
+pack build "${BUILDKITE_PLUGIN_PACK_BUILD_IMAGE}"
