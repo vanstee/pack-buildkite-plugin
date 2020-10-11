@@ -10,6 +10,8 @@ configuration:
       properties:
         image:
           type: string
+        docker-compose-image-service:
+          type: string
       required:
         - image
       additionalProperties: false

@@ -10,7 +10,21 @@ Example
 ```
 steps:
   - plugins:
-      vanstee/pack:
-        build:
-          image: "example:${BUILDKITE_COMMIT}"
+      - vanstee/pack:
+          build:
+            image: "example:${BUILDKITE_COMMIT}"
+```
+
+```
+steps:
+  - plugins:
+      - vanstee/pack:
+          build:
+            image: "example:${BUILDKITE_COMMIT}"
+            docker-compose-service: example
+
+  - command: scripts/test
+    plugins:
+      - docker-compose:
+          run: example
 ```

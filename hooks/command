@@ -5,3 +5,9 @@ DIR="$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)"
 
 echo "--- Building an image with pack"
 pack build "${BUILDKITE_PLUGIN_PACK_BUILD_IMAGE}"
+
+if [ -n "${BUILDKITE_PLUGIN_PACK_BUILD_DOCKER_COMPOSE_SERVICE:-}" ]; then
+  echo "--- Setting metadata for docker-compose plugin"
+  KEY="docker-compose-plugin-built-image-tag-${BUILDKITE_PLUGIN_PACK_BUILD_DOCKER_COMPOSE_SERVICE}"
+  buildkite-agent meta-data set "${KEY}" "${BUILDKITE_PLUGIN_PACK_BUILD_IMAGE}"
+fi
